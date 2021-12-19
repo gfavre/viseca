@@ -18,14 +18,19 @@ CATEGORY_ROW = 'CODE MCC'
 
 CATEGORY_TO_ACCOUNT = {
     0:    '7200',  # viseca
+    2741: '4940',  # Elektor (pi mag)
     4816: '4900',  # Arlo, infomaniak, paypal fastspring
     4899: '4901',  # Youtube, google storage
+    5045: '4900',  # Computers
     5311: '4900',  # digitec, banggood
+    5399: '4900',  # Gonser AG
+    5651: '4900',  # Merchoid
     5732: '4900',  # totonic, interdiscount
     5734: '4901',  # mailgun, shift,
     5735: '4901',  # apple icloud
     5817: '4900',  # jetbrains, google service
     5818: '4900',  # apple icloud
+    5968: '4940',  # Medium
     7372: '4901',  # google cloud, postmark, sentry, github, gandi
     7333: '4810',  # shutterstock, istock
     7399: '4901',  # gsuite
@@ -34,13 +39,15 @@ CATEGORY_TO_ACCOUNT = {
 SELLER_TO_ACCOUNT = {
     'infomaniak.com': '4901',
     'gandi': '4900',
-    'google thegrizzlylabs': '4901'
+    'google thegrizzlylabs': '4901',
+    'google': '4901'
 }
 SELLER_CLEANUP = {
     'jetbrains': 'Jetbrains - logiciel',
     'google thegrizzlylabs': 'Google - Grizzly app',
     'google google storage': 'Google - storage',
     'google youtubepremium': 'Google - YouTube',
+    'google gsuite_beyondth': 'Google - mail',
     'mailgun technologies': 'Mailgun',
     'apple.com/bill': 'iTunes - Cloud',
     'google cloud emea limi': 'Google - mail',
@@ -54,7 +61,20 @@ SELLER_CLEANUP = {
     'infomaniak.com': 'Infomaniak - ?',
     'digitec galaxus (onlin': 'Digitec - ?',
     'paypal distrelecsc': 'Distrelec - ?',
-
+    'paypal merchoid': 'Merchoid - ?',
+    'www.obdev.at': 'LittleSnitch - logiciel',
+    'gandi': 'Gandi - domaines',
+    'harvest': 'Harvest - logiciel',
+    'aws emea': 'Amazon Web Services',
+    'driautodesk inc.': 'Autodesk - logiciel',
+    'medium annual': 'Medium - veille technologique',
+    'microspot.ch': 'Microspot - ?',
+    'paddle.net poedit': 'Paddle - poedit - logiciel',
+    'paypal iterate cyberd': 'Cyberduck - logiciel',
+    'druide infor antidote': 'Antidote - logiciel',
+    'phantomjscloud credits': 'PhantomJSCloud',
+    'gonser ag': 'Gonser - ?',
+    'elektor international': 'Elektor - Raspberry pi mag',
 }
 FEE_SELLER = 'frais de traitement 1.5'
 
@@ -67,6 +87,7 @@ def transform_viseca(filepath):
     sheet = book.sheet_by_index(0)
     header_row = sheet.row_values(HEADER_ROW)
     transactions = {}
+
     def get_account(values):
         if values[SELLER_ROW] in SELLER_TO_ACCOUNT:
             return SELLER_TO_ACCOUNT[values[SELLER_ROW]]
@@ -75,7 +96,6 @@ def transform_viseca(filepath):
         else:
             print(f'Unknown category:{values[CATEGORY_ROW]} for seller:{values[SELLER_ROW]}' )
             return ''
-
 
     for i in range(HEADER_ROW + 1, sheet.nrows):
         values = dict(zip(header_row, sheet.row_values(i)))
@@ -108,6 +128,8 @@ def transform_viseca(filepath):
 
     ordered_transactions = sorted(transactions.values(), key=lambda t: t.date)
 
+    print('-' * 80)
+
     for transaction in ordered_transactions:
         print(
             '\t'.join([
@@ -115,7 +137,8 @@ def transform_viseca(filepath):
                 transaction.account,
                 transaction.seller,
                 '',
-                str(round(transaction.total, 2))
+                '{:.2f}'.format(transaction.total)
+                #str(round(transaction.total, 2))
             ])
         )
 
