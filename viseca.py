@@ -19,6 +19,7 @@ CATEGORY_ROW = 'CODE MCC'
 CATEGORY_TO_ACCOUNT = {
     0:    '7200',  # viseca
     2741: '4940',  # Elektor (pi mag)
+    4814: '4910',  # Poste
     4816: '4900',  # Arlo, infomaniak, paypal fastspring
     4899: '4901',  # Youtube, google storage
     5045: '4900',  # Computers
@@ -29,7 +30,7 @@ CATEGORY_TO_ACCOUNT = {
     5734: '4901',  # mailgun, shift,
     5735: '4901',  # apple icloud
     5817: '4900',  # jetbrains, google service
-    5818: '4900',  # apple icloud
+    5818: '4901',  # apple icloud
     5968: '4940',  # Medium
     7372: '4901',  # google cloud, postmark, sentry, github, gandi
     7333: '4810',  # shutterstock, istock
@@ -40,7 +41,9 @@ SELLER_TO_ACCOUNT = {
     'infomaniak.com': '4901',
     'gandi': '4900',
     'google thegrizzlylabs': '4901',
-    'google': '4901'
+    'google': '4901',
+    'google gsuite_beyondth': '4901'
+
 }
 SELLER_CLEANUP = {
     'jetbrains': 'Jetbrains - logiciel',
@@ -75,6 +78,7 @@ SELLER_CLEANUP = {
     'phantomjscloud credits': 'PhantomJSCloud',
     'gonser ag': 'Gonser - ?',
     'elektor international': 'Elektor - Raspberry pi mag',
+    'postch post ch ag': 'Poste - timbres'
 }
 FEE_SELLER = 'frais de traitement 1.5'
 
