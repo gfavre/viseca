@@ -19,22 +19,31 @@ CATEGORY_ROW = 'CODE MCC'
 CATEGORY_TO_ACCOUNT = {
     0:    '7200',  # viseca
     2741: '4940',  # Elektor (pi mag)
+    4812: '4300',  # Fix my phone
     4814: '4910',  # Poste
     4816: '4900',  # Arlo, infomaniak, paypal fastspring
     4899: '4901',  # Youtube, google storage
     5045: '4900',  # Computers
+    5099: '4900',  # Durable Goods Not Elsewhere Classified
     5311: '4900',  # digitec, banggood
+    5331: '4900',  # Variety Stores - fruugo
     5399: '4900',  # Gonser AG
+    5499: '4850',  # Special T
     5651: '4900',  # Merchoid
     5732: '4900',  # totonic, interdiscount
-    5734: '4901',  # mailgun, shift,
+    5734: '4901',  # mailgun, shift, autodesk
     5735: '4901',  # apple icloud
+    5815: '4901',  # Youtube
     5817: '4900',  # jetbrains, google service
     5818: '4901',  # apple icloud
     5968: '4940',  # Medium
-    7372: '4901',  # google cloud, postmark, sentry, github, gandi
+    5999: '4900',  # Paddle
+    7011: '4850',  # Lodging–Hotels, Motels, Resorts–not elsewhere classified
+    7372: '4901',  # google cloud, postmark, sentry, github, gandi, druide (et c'est faux!)
     7333: '4810',  # shutterstock, istock
     7399: '4901',  # gsuite
+    7523: '4800',  # Parking
+    8249: '4080',  # Schools, Trade and Vocational Schools - Udemy
 
 }
 SELLER_TO_ACCOUNT = {
@@ -42,8 +51,15 @@ SELLER_TO_ACCOUNT = {
     'gandi': '4900',
     'google thegrizzlylabs': '4901',
     'google': '4901',
-    'google gsuite_beyondth': '4901'
-
+    'google storage': '4901',
+    'google gsuite_beyondth': '4901',
+    'druide infor antidote': '4900',
+    'driautodesk inc.': '4900',
+    'paypal iterate cyberd': '4900',
+    'whereby': '4920',
+    'adobe': '4900',
+    'adobe acropro subs': '4900',
+    'matthieudesroches.com': '4080',
 }
 SELLER_CLEANUP = {
     'jetbrains': 'Jetbrains - logiciel',
@@ -65,6 +81,7 @@ SELLER_CLEANUP = {
     'digitec galaxus (onlin': 'Digitec - ?',
     'paypal distrelecsc': 'Distrelec - ?',
     'paypal merchoid': 'Merchoid - ?',
+    'paypal banggoodtec': 'Banggood - ?',
     'www.obdev.at': 'LittleSnitch - logiciel',
     'gandi': 'Gandi - domaines',
     'harvest': 'Harvest - logiciel',
@@ -78,8 +95,22 @@ SELLER_CLEANUP = {
     'phantomjscloud credits': 'PhantomJSCloud',
     'gonser ag': 'Gonser - ?',
     'elektor international': 'Elektor - Raspberry pi mag',
-    'postch post ch ag': 'Poste - timbres'
+    'postch post ch ag': 'Poste - timbres',
+    'special.t by nestle': 'Special T',
+    'fix my phone - réparation': 'Fix my phone - réparation',
+    'signmax ab': 'Signmax - étiquette boîte aux lettres',
+    'google storage': 'Google - storage',
+    'whereby': 'Whereby',
+    'adobe': 'Adobe - logiciel',
+    'adobe acropro subs': 'Adobe - logiciel',
+    'totonic gmbh': 'Totonic - Pi-shop',
+    'cff prail gland': 'Parking CFF Gland',
+    'parking centre ville': 'Parking centre ville, Nyon',
+    'paypal udemy': 'Udemy - formation',
+    'paypal fruugo': 'Fruugo - ?',
+    'auberge de la réunion': 'Auberge de la Réunion, Coinsins',
 }
+
 FEE_SELLER = 'frais de traitement 1.5'
 
 
